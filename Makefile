@@ -5,8 +5,10 @@ build:
 gen:
 	bash ./gen.sh
 
-run:
+run-server:
 	./server 7838 1 server.crt server_rsa_private.pem.unsecure
+
+run-client:
 	./client 127.0.0.1 7838 client.crt client_rsa_private.pem.unsecure
 
 
