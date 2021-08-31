@@ -69,10 +69,7 @@ int main(int argc, char **argv) {
         exit(1);
     }
 
-    // 双向验证
-    // SSL_VERIFY_PEER---要求对证书进行认证，没有证书也会放行
-    // SSL_VERIFY_FAIL_IF_NO_PEER_CERT---要求客户端需要提供证书，无证书则会断开连接
-    SSL_CTX_set_verify(ctx, SSL_VERIFY_PEER|SSL_VERIFY_FAIL_IF_NO_PEER_CERT, NULL);
+
     // 设置信任根证书
     if (SSL_CTX_load_verify_locations(ctx, "ca.crt",NULL)<=0){
         ERR_print_errors_fp(stdout);
