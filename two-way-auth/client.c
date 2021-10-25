@@ -115,7 +115,7 @@ int main(int argc, char **argv)
     ssl = SSL_new(ctx);
     SSL_set_fd(ssl, sockfd);
     /* 建立 SSL 连接 */
-    if (SSL_connect(ssl) == -1)
+    if (SSL_connect(ssl) <= 0)
         ERR_print_errors_fp(stderr);
     else {
         printf("Connected with %s encryption\n", SSL_get_cipher(ssl));
